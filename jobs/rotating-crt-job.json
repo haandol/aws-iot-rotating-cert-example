@@ -1,0 +1,11 @@
+{
+	"operation" : "rotate-crt",
+	"version" : "1.0",
+	"packageName" : "rotating.crt",
+	"autoStart" : "true",
+	"workingDirectory" : "/home/pi/tutorial",
+	"files" : {
+		"fileName" : "new-device-crt.tar.gz",
+		"url" : "${aws:iot:s3-presigned-url:https://s3.amazonaws.com/dongkyl-iot-test/new-device-crt.tar.gz}"
+	}
+}

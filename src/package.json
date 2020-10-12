@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "aws-iot-device-sdk": "^2.2.6",
+    "axios": "^0.20.0",
     "yargs": "^16.0.3"
   }
 }

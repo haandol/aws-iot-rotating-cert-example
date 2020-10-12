@@ -103,3 +103,4 @@ dist
 # TernJS port file
 .tern-port
 certs/
+.DS_Store

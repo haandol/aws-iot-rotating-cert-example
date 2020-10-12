@@ -36,8 +36,9 @@ JIT(just-in-time) Provisioning process sets thing's id to its certificate id by 
 The certificate id is generated using signature of certificate.
 
 ```bash
-$ openssl x509 -noout -fingerprint -sha256 -in ./certs/deviceAndRootCA.crt | cut -f2 -d '=' | sed 's/://g' | awk '{print tolower($0)}'
+$ export THING_NAME=$(openssl x509 -noout -fingerprint -sha256 -in ./src/certs/deviceAndRootCA.crt | cut -f2 -d '=' | sed 's/://g' | awk '{print tolower($0)}')
 
+$ echo $THING_NAME
 596143567205b76dffc74843d37b2c7c46908ec809c1f472c24382ab6b113822
 ```
 
@@ -54,7 +55,7 @@ run device app
 
 ```bash
 $ export DATA_ENDPOINT=$(aws iot describe-endpoint --endpoint-type iot:Data-ATS | jq -r '.endpointAddress')
-$ node app.js -e $DATA_ENDPOINT -c clientID1
+$ node app.js -e $DATA_ENDPOINT -n $THING_NAME -c clientID1
 
 connect
 ```
