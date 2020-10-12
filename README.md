@@ -80,7 +80,22 @@ $ ./scripts/upload-new-device-crt.sh $BUCKET_NAME
 
 # Create job
 
+https://docs.aws.amazon.com/iot/latest/developerguide/manage-job-cli.html
+
 Create IAM role for generate pre-signed url for certificate file
+the role should have permission to download files from Amazon S3.
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Effect": "Allow",
+        "Action": "s3:GetObject",
+        "Resource": [
+            "arn:aws:s3:::dongkyl-iot-test/*"
+        ]
+    }
+}
+```
 
 ```bash
 $ ./scripts/create-job.sh
@@ -88,8 +103,25 @@ Usage: ./scripts/create-job.sh <JOB_ID> <ROLE_ARN> <TARGET_DEVICE_ARN>
 
 $ ./scripts/create-job.sh \
   job01 \
-  arn:aws:iam::929831892372:role/service-role/IoTCopyJobRole \
+  arn:aws:iam::929831892372:role/service-role/S3DownloadRole \
   arn:aws:iot:ap-northeast-2:929831892372:thing/thing01
+```
+
+when job is created, job-agent prints out result and update status of the job to completed
+
+```bash
+[Job] Rotating certificate job handler invoked, jobId: job01
+[Job] Rotating certificate job document: {"operation":"rotate-crt","version":"1.0","packageName":"rotating.crt","autoStart":"true","workingDirectory":"/home/pi/tutorial","files":{"fileName":"new-device-crt.tar.gz","url":"https://dongkyl-iot-test.s3.ap-northeast-2.amazonaws.com/new-device-crt.tar.gz?X-Amz-Security-Token=IQoJb..."}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  3025  100  3025    0     0  48790      0 --:--:-- --:--:-- --:--:-- 48790
+undefined
+download cert files successfully...
+x device.key
+x device.crt
+x deviceAndRootCa.crt
+undefined
+replace cert files successfully...
 ```
 
 # Restart job agent
