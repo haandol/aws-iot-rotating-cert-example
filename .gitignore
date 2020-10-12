@@ -104,3 +104,4 @@ dist
 .tern-port
 certs/
 .DS_Store
+device-crt.tar.gz

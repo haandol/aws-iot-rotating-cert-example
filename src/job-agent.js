@@ -91,7 +91,7 @@ class Jobs {
 
     this.jobs.startJobNotifications(this.thingName, (err) => {
       if(!err) {
-        console.log(`job notifications initiated for thing: ${this.thingName}`);
+        console.log(`[Job] notifications initiated for thing: ${this.thingName}`);
       }
       else {
         console.error(err);
