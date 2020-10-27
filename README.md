@@ -9,6 +9,8 @@
 
 # Register RootCA to AWS IoT
 
+<img src="img/register.png"/>
+
 ## Create RootCA
 
 ```bash
@@ -61,6 +63,8 @@ $ node job-agent.js -e $DATA_ENDPOINT -n $THING_NAME -c clientID1
 ```
 
 # Create device rotating certificate 
+
+<img src="img/rotate.png"/>
 
 create device certificate to be rotated with new name
 
