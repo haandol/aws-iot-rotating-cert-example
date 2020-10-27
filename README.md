@@ -28,7 +28,7 @@ $ ./scripts/create-verification-crt.sh
 create IAM Role ref https://aws.amazon.com/ko/blogs/iot/setting-up-just-in-time-provisioning-with-aws-iot-core/
 
 ```bash
-$ ./scripts/create-jitp-template.sh arn:aws:iam::929831892372:role/JITPRole
+$ ./scripts/create-jitp-template.sh arn:aws:iam::043490748814:role/JITPRole
 $ ./scripts/register-root-ca.sh
 ```
 
