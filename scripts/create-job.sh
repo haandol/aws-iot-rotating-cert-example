@@ -1,15 +1,16 @@
 #!/bin/sh
 
 print_usage() {
-  echo "Usage: $0 <JOB_ID> <ROLE_ARN> <TARGET_DEVICE_ARN>"
+  echo "Usage: $0 <JOB_ID> <ROLE_ARN> <TARGET_DEVICE_ARN> <PROFILE>"
   exit 2
 }
 
-if [ -n "$3" ];
+if [ -n "$4" ];
 then
     JOB_ID=$1
     ROLE_ARN=$2
     TARGET=$3
+    PROFILE=$4
 else
   print_usage
 fi
@@ -24,6 +25,7 @@ aws iot create-job \
     --timeout-config inProgressTimeoutInMinutes=100 \
     --description "Rotating certificate job" \
     --target-selection SNAPSHOT \
-    --presigned-url-config "{\"roleArn\":\"$ROLE_ARN\", \"expiresInSec\":3600}"
+    --presigned-url-config "{\"roleArn\":\"$ROLE_ARN\", \"expiresInSec\":3600}" \
+    --profile $PROFILE
 
 popd

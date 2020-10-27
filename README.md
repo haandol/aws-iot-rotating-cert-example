@@ -7,6 +7,24 @@
 5. Create job
 6. Restart job agent (or restart device)
 
+# Prerequisites
+
+- awscli
+- node.js 10.x+
+- AWS Account and locally configured AWS credential
+
+>In this example, we assume your AWS profile name is **ecs**
+
+```bash
+$ aws configure --profile ecs
+AWS Access Key ID [****************4LUX]: 
+AWS Secret Access Key [****************/HTe]: 
+Default region name [ap-northeast-2]: 
+Default output format [json]: 
+
+$ export PROFILE=ecs
+```
+
 # Register RootCA to AWS IoT
 
 <img src="img/register.png"/>
@@ -21,6 +39,9 @@ $ ./scripts/create-rootca.sh
 
 ```bash
 $ ./scripts/create-verification-crt.sh
+Usage: ./scripts/create-verification-crt.sh <PROFILE>
+
+$ ./scripts/create-verification-crt.sh $PROFILE
 ```
 
 ### Register RootCA using verification certification
@@ -29,7 +50,11 @@ create IAM Role ref https://aws.amazon.com/ko/blogs/iot/setting-up-just-in-time-
 
 ```bash
 $ ./scripts/create-jitp-template.sh arn:aws:iam::929831892372:role/JITPRole
+
 $ ./scripts/register-root-ca.sh
+Usage: ./scripts/register-root-ca.sh <PROFILE>
+
+$ ./scripts/register-root-ca.sh $PROFILE
 ```
 
 # Create device certificate
@@ -55,7 +80,10 @@ $ npm i
 ## Run job agent to provision device
 
 ```bash
-$ export DATA_ENDPOINT=$(aws iot describe-endpoint --endpoint-type iot:Data-ATS | jq -r '.endpointAddress')
+$ export DATA_ENDPOINT=$(aws iot describe-endpoint --endpoint-type iot:Data-ATS --profile $PROFILE | jq -r '.endpointAddress')
+$ echo $DATA_ENDPOINT
+xxxxxxx-ats.iot.ap-northeast-2.amazonaws.com
+
 $ node job-agent.js -e $DATA_ENDPOINT -n $THING_NAME -c clientID1
 
 [Job] connect
@@ -79,7 +107,7 @@ upload certificates to S3 bucket
 
 ```bash
 $ export BUCKET_NAME=dongkyl-iot-test
-$ ./scripts/upload-new-device-crt.sh $BUCKET_NAME
+$ ./scripts/upload-new-device-crt.sh $BUCKET_NAME $PROFILE
 ```
 
 # Create job
@@ -103,12 +131,13 @@ the role should have permission to download files from Amazon S3.
 
 ```bash
 $ ./scripts/create-job.sh
-Usage: ./scripts/create-job.sh <JOB_ID> <ROLE_ARN> <TARGET_DEVICE_ARN>
+Usage: ./scripts/create-job.sh <JOB_ID> <ROLE_ARN> <TARGET_DEVICE_ARN> <PROFILE>
 
 $ ./scripts/create-job.sh \
   job01 \
   arn:aws:iam::929831892372:role/service-role/S3DownloadRole \
-  arn:aws:iot:ap-northeast-2:929831892372:thing/thing01
+  arn:aws:iot:ap-northeast-2:929831892372:thing/thing01 \
+  $PROFILE
 ```
 
 when job is created, job-agent prints out result and update status of the job to completed
