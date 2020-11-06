@@ -84,7 +84,7 @@ $ node job-agent.js -e $DATA_ENDPOINT -n $THING_NAME -c clientID1
 [Job] notifications initiated for thing: 596143567205b76dffc74843d37b2c7c46908ec809c1f472c24382ab6b113822
 ```
 
-# Create rotating device certificate 
+# Rotating Device Certificates 
 
 <img src="img/rotate.png"/>
 
@@ -104,7 +104,7 @@ $ export BUCKET_NAME=dongkyl-iot-test
 $ ./scripts/upload-new-device-crt.sh $BUCKET_NAME $PROFILE
 ```
 
-# Create rotatin certificate job
+## Create rotatin certificate job
 
 https://docs.aws.amazon.com/iot/latest/developerguide/manage-job-cli.html
 
@@ -151,7 +151,7 @@ undefined
 replace cert files successfully...
 ```
 
-# Restart job agent
+## Restart job agent
 
 stop job agent and restart it with new thing name
 
