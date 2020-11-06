@@ -20,7 +20,7 @@ const argv = yargs
 
 class Device {
   constructor(argv) {
-    this.cliendId = argv.clientId;
+    this.clientId = argv.clientId;
 
     this.device = awsIot.device({
       keyPath: path.resolve(__dirname, 'certs', 'device.key'),
@@ -66,3 +66,4 @@ class Device {
 
 const device = new Device(argv);
 device.heartbeat();
+device.publish(`iot/update/thing/${device.clientId}`, JSON.stringify({debug: true}));
