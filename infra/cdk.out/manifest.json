@@ -1,0 +1,466 @@
+{
+  "version": "6.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "DemoIotRuleStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "DemoIotRuleStack.template.json"
+      },
+      "metadata": {
+        "/DemoIotRuleStack": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388e",
+              "id": "56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388e",
+              "packaging": "zip",
+              "sourceHash": "56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388e",
+              "s3BucketParameter": "AssetParameters56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388eS3BucketCD955259",
+              "s3KeyParameter": "AssetParameters56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388eS3VersionKey98C888C2",
+              "artifactHashParameter": "AssetParameters56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388eArtifactHashE712C448"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/construct-compat.ts:411:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:160:23)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:71:19)",
+              "IotRuleStack.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack.ts:651:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:75:25)",
+              "new Asset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:139:40)",
+              "AssetCode.bind (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/function.ts:559:29)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:13:16)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/UpdateThingFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UpdateThingFunctionServiceRole58B1CF9D",
+            "trace": [
+              "new Role (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "new Function (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/function.ts:539:31)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:13:16)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/UpdateThingFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UpdateThingFunctionServiceRoleDefaultPolicy0EA5A888",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/policy.ts:141:22)",
+              "Role.addToPrincipalPolicy (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/role.ts:368:28)",
+              "Role.addToPolicy (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/role.ts:376:17)",
+              "Function.addToRolePolicy (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/function-base.ts:239:15)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:18:8)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/UpdateThingFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UpdateThingFunction1F0470B8",
+            "trace": [
+              "new Function (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/function.ts:593:35)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:13:16)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/AssetParameters/56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388e/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388eS3BucketCD955259",
+            "trace": [
+              "new FileAssetParameters (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:147:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:71:19)",
+              "IotRuleStack.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack.ts:651:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:75:25)",
+              "new Asset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:139:40)",
+              "AssetCode.bind (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/function.ts:559:29)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:13:16)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/AssetParameters/56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388e/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388eS3VersionKey98C888C2",
+            "trace": [
+              "new FileAssetParameters (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:147:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:71:19)",
+              "IotRuleStack.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack.ts:651:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:75:25)",
+              "new Asset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:139:40)",
+              "AssetCode.bind (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/function.ts:559:29)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:13:16)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/AssetParameters/56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388e/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters56103dc58ebec03ee89facb7cc362f7d53763bd87f0da7beae503f60237b388eArtifactHashE712C448",
+            "trace": [
+              "new FileAssetParameters (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:147:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:71:19)",
+              "IotRuleStack.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack.ts:651:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:75:25)",
+              "new Asset (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:139:40)",
+              "AssetCode.bind (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/code.ts:180:20)",
+              "new Function (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-lambda/lib/function.ts:559:29)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:13:16)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/DebugBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DebugBucketD4A91F06",
+            "trace": [
+              "new Bucket (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:1245:22)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:26:25)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/ProdBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProdBucket0289CECC",
+            "trace": [
+              "new Bucket (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:1245:22)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:29:24)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/UpdateThingRule": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UpdateThingRule",
+            "trace": [
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:33:29)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/IoTS3Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IoTS3RoleD780F438",
+            "trace": [
+              "new Role (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:49:23)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/IoTS3Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IoTS3RoleDefaultPolicy72127F95",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/policy.ts:141:22)",
+              "Role.addToPrincipalPolicy (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/role.ts:368:28)",
+              "Function.addToPrincipal (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/grant.ts:168:61)",
+              "Function.addToPrincipalOrResource (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-iam/lib/grant.ts:119:26)",
+              "Bucket.grant (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:689:27)",
+              "Bucket.grantPut (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:595:17)",
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:52:17)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/DebugLog": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DebugLog",
+            "trace": [
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:55:5)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/ProdLog": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProdLog",
+            "trace": [
+              "new IotRuleStack (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/lib/iot-rule-stack.ts:73:5)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "main (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1137:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)",
+              "Module.load (internal/modules/cjs/loader.js:985:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:878:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)",
+              "/Users/dongkyl/.nvm/versions/node/v12.18.4/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:51:24)",
+              "/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stage.ts:177:23)",
+              "process.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:483:12)",
+              "process.emit (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/DemoIotRuleStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:60:27)",
+              "/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/stage.ts:177:23)",
+              "process.<anonymous> (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:483:12)",
+              "process.emit (/Users/dongkyl/Documents/git/aws-iot-rotating-cert-example/infra/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

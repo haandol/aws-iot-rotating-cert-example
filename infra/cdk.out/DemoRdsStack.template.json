@@ -1,0 +1,613 @@
+{
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Resources": {
+    "RdsClusterSubnetsC1949EB4": {
+      "Type": "AWS::RDS::DBSubnetGroup",
+      "Properties": {
+        "DBSubnetGroupDescription": "Subnets for RdsCluster database",
+        "SubnetIds": [
+          {
+            "Fn::ImportValue": "DemoVpcStack:ExportsOutputRefVpcPublicSubnet1Subnet5C2D37C4FFA2B456"
+          },
+          {
+            "Fn::ImportValue": "DemoVpcStack:ExportsOutputRefVpcPublicSubnet2Subnet691E08A351552740"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/Subnets/Default"
+      }
+    },
+    "RdsClusterSecurityGroup7E54DD55": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "RDS security group",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "VpcId": {
+          "Fn::ImportValue": "DemoVpcStack:ExportsOutputRefVpc8378EB38272D6E3A"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/SecurityGroup/Resource"
+      }
+    },
+    "RdsClusterSecurityGroupfromDemoRdsStackRdsClusterRotationSingleUserSecurityGroup16BB8521IndirectPort437D71E4": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "Description": "from DemoRdsStackRdsClusterRotationSingleUserSecurityGroup16BB8521:{IndirectPort}",
+        "FromPort": {
+          "Fn::GetAtt": [
+            "RdsCluster0F718D69",
+            "Endpoint.Port"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "RdsClusterSecurityGroup7E54DD55",
+            "GroupId"
+          ]
+        },
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "RdsClusterRotationSingleUserSecurityGroup660F21D2",
+            "GroupId"
+          ]
+        },
+        "ToPort": {
+          "Fn::GetAtt": [
+            "RdsCluster0F718D69",
+            "Endpoint.Port"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/SecurityGroup/from DemoRdsStackRdsClusterRotationSingleUserSecurityGroup16BB8521:{IndirectPort}"
+      }
+    },
+    "RdsClusterSecurityGroupfromDemoRdsStackRdsClusterSecurityGroup2D0B7D7AIndirectPortC78E7565": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "Description": "from DemoRdsStackRdsClusterSecurityGroup2D0B7D7A:{IndirectPort}",
+        "FromPort": {
+          "Fn::GetAtt": [
+            "RdsCluster0F718D69",
+            "Endpoint.Port"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "RdsClusterSecurityGroup7E54DD55",
+            "GroupId"
+          ]
+        },
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "RdsClusterSecurityGroup7E54DD55",
+            "GroupId"
+          ]
+        },
+        "ToPort": {
+          "Fn::GetAtt": [
+            "RdsCluster0F718D69",
+            "Endpoint.Port"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/SecurityGroup/from DemoRdsStackRdsClusterSecurityGroup2D0B7D7A:{IndirectPort}"
+      }
+    },
+    "RdsClusterSecurityGroupfromIndirectPeerIndirectPortF71E6E6D": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "CidrIp": {
+          "Fn::ImportValue": "DemoVpcStack:ExportsOutputFnGetAttVpc8378EB38CidrBlock14DD2396"
+        },
+        "Description": {
+          "Fn::Join": [
+            "",
+            [
+              "from ",
+              {
+                "Fn::ImportValue": "DemoVpcStack:ExportsOutputFnGetAttVpc8378EB38CidrBlock14DD2396"
+              },
+              ":{IndirectPort}"
+            ]
+          ]
+        },
+        "FromPort": {
+          "Fn::GetAtt": [
+            "RdsCluster0F718D69",
+            "Endpoint.Port"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "RdsClusterSecurityGroup7E54DD55",
+            "GroupId"
+          ]
+        },
+        "ToPort": {
+          "Fn::GetAtt": [
+            "RdsCluster0F718D69",
+            "Endpoint.Port"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/SecurityGroup/from {IndirectPeer}:{IndirectPort}"
+      }
+    },
+    "RdsClusterSecurityGroupfrom542391191632IndirectPort0C1B38A9": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "CidrIp": "54.239.119.16/32",
+        "Description": "from 54.239.119.16/32:{IndirectPort}",
+        "FromPort": {
+          "Fn::GetAtt": [
+            "RdsCluster0F718D69",
+            "Endpoint.Port"
+          ]
+        },
+        "GroupId": {
+          "Fn::GetAtt": [
+            "RdsClusterSecurityGroup7E54DD55",
+            "GroupId"
+          ]
+        },
+        "ToPort": {
+          "Fn::GetAtt": [
+            "RdsCluster0F718D69",
+            "Endpoint.Port"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/SecurityGroup/from 54.239.119.16_32:{IndirectPort}"
+      }
+    },
+    "RdsClusterSecretF4311263": {
+      "Type": "AWS::SecretsManager::Secret",
+      "Properties": {
+        "Description": {
+          "Fn::Join": [
+            "",
+            [
+              "Generated by the CDK for stack: ",
+              {
+                "Ref": "AWS::StackName"
+              }
+            ]
+          ]
+        },
+        "GenerateSecretString": {
+          "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
+          "GenerateStringKey": "password",
+          "PasswordLength": 30,
+          "SecretStringTemplate": "{\"username\":\"postgres\"}"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/Secret/Resource"
+      }
+    },
+    "RdsClusterSecretAttachmentB0F52CBA": {
+      "Type": "AWS::SecretsManager::SecretTargetAttachment",
+      "Properties": {
+        "SecretId": {
+          "Ref": "RdsClusterSecretF4311263"
+        },
+        "TargetId": {
+          "Ref": "RdsCluster0F718D69"
+        },
+        "TargetType": "AWS::RDS::DBCluster"
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/Secret/Attachment/Resource"
+      }
+    },
+    "RdsClusterSecretAttachmentRotationScheduleF106258D": {
+      "Type": "AWS::SecretsManager::RotationSchedule",
+      "Properties": {
+        "SecretId": {
+          "Ref": "RdsClusterSecretAttachmentB0F52CBA"
+        },
+        "RotationLambdaARN": {
+          "Fn::GetAtt": [
+            "RdsClusterRotationSingleUser358E00E9",
+            "Outputs.RotationLambdaARN"
+          ]
+        },
+        "RotationRules": {
+          "AutomaticallyAfterDays": 30
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/Secret/Attachment/RotationSchedule/Resource"
+      }
+    },
+    "RdsClusterSecretAttachmentPolicy7A1987B5": {
+      "Type": "AWS::SecretsManager::ResourcePolicy",
+      "Properties": {
+        "ResourcePolicy": {
+          "Statement": [
+            {
+              "Action": "secretsmanager:DeleteSecret",
+              "Effect": "Deny",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":root"
+                    ]
+                  ]
+                }
+              },
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "SecretId": {
+          "Ref": "RdsClusterSecretAttachmentB0F52CBA"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/Secret/Attachment/Policy/Resource"
+      }
+    },
+    "RdsCluster0F718D69": {
+      "Type": "AWS::RDS::DBCluster",
+      "Properties": {
+        "Engine": "aurora-postgresql",
+        "DatabaseName": "pgdb",
+        "DBClusterParameterGroupName": "default.aurora-postgresql11",
+        "DBSubnetGroupName": {
+          "Ref": "RdsClusterSubnetsC1949EB4"
+        },
+        "EngineVersion": "11.7",
+        "MasterUsername": {
+          "Fn::Join": [
+            "",
+            [
+              "{{resolve:secretsmanager:",
+              {
+                "Ref": "RdsClusterSecretF4311263"
+              },
+              ":SecretString:username::}}"
+            ]
+          ]
+        },
+        "MasterUserPassword": {
+          "Fn::Join": [
+            "",
+            [
+              "{{resolve:secretsmanager:",
+              {
+                "Ref": "RdsClusterSecretF4311263"
+              },
+              ":SecretString:password::}}"
+            ]
+          ]
+        },
+        "Port": 5432,
+        "VpcSecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "RdsClusterSecurityGroup7E54DD55",
+              "GroupId"
+            ]
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/Resource"
+      }
+    },
+    "RdsClusterInstance1838E3E18": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "DBInstanceClass": "db.r5.large",
+        "DBClusterIdentifier": {
+          "Ref": "RdsCluster0F718D69"
+        },
+        "DBSubnetGroupName": {
+          "Ref": "RdsClusterSubnetsC1949EB4"
+        },
+        "Engine": "aurora-postgresql",
+        "EngineVersion": "11.7",
+        "PubliclyAccessible": true
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/Instance1"
+      }
+    },
+    "RdsClusterRotationSingleUserSecurityGroup660F21D2": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "DemoRdsStack/RdsCluster/RotationSingleUser/SecurityGroup",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "VpcId": {
+          "Fn::ImportValue": "DemoVpcStack:ExportsOutputRefVpc8378EB38272D6E3A"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/RotationSingleUser/SecurityGroup/Resource"
+      }
+    },
+    "RdsClusterRotationSingleUser358E00E9": {
+      "Type": "AWS::Serverless::Application",
+      "Properties": {
+        "Location": {
+          "ApplicationId": "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
+          "SemanticVersion": "1.1.60"
+        },
+        "Parameters": {
+          "endpoint": {
+            "Fn::Join": [
+              "",
+              [
+                "https://secretsmanager.",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ".",
+                {
+                  "Ref": "AWS::URLSuffix"
+                }
+              ]
+            ]
+          },
+          "functionName": "DemoRdsStackRdsClusterRotationSingleUserDEB0DDDC",
+          "vpcSubnetIds": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::ImportValue": "DemoVpcStack:ExportsOutputRefVpcPublicSubnet1Subnet5C2D37C4FFA2B456"
+                },
+                ",",
+                {
+                  "Fn::ImportValue": "DemoVpcStack:ExportsOutputRefVpcPublicSubnet2Subnet691E08A351552740"
+                }
+              ]
+            ]
+          },
+          "vpcSecurityGroupIds": {
+            "Fn::GetAtt": [
+              "RdsClusterRotationSingleUserSecurityGroup660F21D2",
+              "GroupId"
+            ]
+          },
+          "excludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/RdsCluster/RotationSingleUser/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Modules": "aws-cdk=1.70.0,@aws-cdk/assets=1.70.0,@aws-cdk/aws-applicationautoscaling=1.70.0,@aws-cdk/aws-autoscaling-common=1.70.0,@aws-cdk/aws-cloudwatch=1.70.0,@aws-cdk/aws-codeguruprofiler=1.70.0,@aws-cdk/aws-ec2=1.70.0,@aws-cdk/aws-events=1.70.0,@aws-cdk/aws-iam=1.70.0,@aws-cdk/aws-kms=1.70.0,@aws-cdk/aws-lambda=1.70.0,@aws-cdk/aws-logs=1.70.0,@aws-cdk/aws-rds=1.70.0,@aws-cdk/aws-s3=1.70.0,@aws-cdk/aws-s3-assets=1.70.0,@aws-cdk/aws-sam=1.70.0,@aws-cdk/aws-secretsmanager=1.70.0,@aws-cdk/aws-sqs=1.70.0,@aws-cdk/aws-ssm=1.70.0,@aws-cdk/cloud-assembly-schema=1.70.0,@aws-cdk/core=1.70.0,@aws-cdk/cx-api=1.70.0,@aws-cdk/region-info=1.70.0,jsii-runtime=node.js/v12.18.4"
+      },
+      "Metadata": {
+        "aws:cdk:path": "DemoRdsStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Outputs": {
+    "SecretArn": {
+      "Value": {
+        "Ref": "RdsClusterSecretAttachmentB0F52CBA"
+      },
+      "Export": {
+        "Name": "SecretArn"
+      }
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
