@@ -104,7 +104,7 @@ $ export BUCKET_NAME=dongkyl-iot-test
 $ ./scripts/upload-new-device-crt.sh $BUCKET_NAME $PROFILE
 ```
 
-## Create rotatin certificate job
+## Create rotating certificate job
 
 https://docs.aws.amazon.com/iot/latest/developerguide/manage-job-cli.html
 
