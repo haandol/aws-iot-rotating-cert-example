@@ -30,9 +30,12 @@ class Device {
     this.clientId = props.clientId;
 
     this.device = awsIot.device({
-      keyPath: path.resolve(__dirname, 'certs', 'device.key'),
-      certPath: path.resolve(__dirname, 'certs', 'deviceAndRootCA.crt'),
+      keyPath: path.resolve(__dirname, 'certs', '7f6822266f-private.pem.key'),
+      certPath: path.resolve(__dirname, 'certs', '7f6822266f-certificate.pem.crt'),
       caPath: path.resolve(__dirname, 'certs', 'AmazonRootCA1.pem'),
+//      keyPath: path.resolve(__dirname, 'certs', 'device.key'),
+//      certPath: path.resolve(__dirname, 'certs', 'deviceAndRootCA.crt'),
+//      caPath: path.resolve(__dirname, 'certs', 'AmazonRootCA1.pem'),
       clientId: props.clientId,
       host: props.endpoint,
     });
@@ -42,16 +45,7 @@ class Device {
     this.device.on('connect', (msg) => {
       console.log('[Device]connect');
 
-      console.log('subscribe thing update');
-      this.device.subscribe(`$aws/events/thing/${this.thingName}/updated`);
-
-      console.log('publish thing update');
-      this.device.publish(`iot/update/thing/${this.thingName}`, JSON.stringify({
-        thingName: device.thingName,
-        attributes: {
-          debug: 'false'
-        }
-      }));
+      this.publish(`$aws/certificates/create/json`, '');
     });
 
     this.device.on('disconnect', () => {
@@ -61,11 +55,23 @@ class Device {
     })
 
     this.device.on('message', (topic, message) => {
-      console.log(`[Device] message: ${topic}-${message.toString()}`);
       if (topic === `$aws/events/thing/${this.thingName}/updated`) {
         const payload = JSON.parse(message);
         this.debug = payload.attributes.debug;
         console.log(this.debug);
+      } else if (topic === '$aws/certificates/create/json/accepted') {
+        const payload = JSON.parse(message.toString());
+        console.log(JSON.stringify(payload));
+
+        const register_template = {
+          "certificateOwnershipToken": payload.certificateOwnershipToken,
+          "parameters": {
+            "SerialNumber": this.thingName,
+          },
+        }
+        this.publish('$aws/provisioning-templates/test/provision/json', JSON.stringify(register_template));
+      } else {
+        console.log(`[Device] message: ${topic}-${message.toString()}`);
       }
     });
   }
@@ -90,4 +96,3 @@ class Device {
 
 
 const device = new Device(argv);
-device.heartbeat();
