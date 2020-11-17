@@ -35,6 +35,15 @@ $ export PROFILE=ecs
 $ ./scripts/create-rootca.sh
 ```
 
+if you face `Error Loading extension section v3_ca` error, add below section to `/etc/ssl/openssl.cnf`
+
+```bash
+[ v3_ca ]
+basicConstraints = critical,CA:TRUE
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer:always
+```
+
 ### Create private key verification certificate
 
 ```bash
