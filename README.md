@@ -54,8 +54,17 @@ $ ./scripts/create-verification-crt.sh $PROFILE
 
 create IAM Role ref https://aws.amazon.com/ko/blogs/iot/setting-up-just-in-time-provisioning-with-aws-iot-core/
 
+*create-jitp-template* will create **Thing type(e.g. Demo)** and **certs/provisioning-template.json**
+
+Thing type is needed if you want to create more than 3 attributes on the thing.
+> https://docs.aws.amazon.com/iot/latest/developerguide/thing-types.html
+> * Things with a thing type can have up to 50 attributes.
+> * Things without a thing type can have up to three attributes.
+
 ```bash
-$ ./scripts/create-jitp-template.sh arn:aws:iam::043490748814:role/JITPRole
+Usage: ./scripts/create-jitp-template.sh <ROLE_ARN> <THING_TYPE_NAME> <PROFILE>
+
+$ ./scripts/create-jitp-template.sh arn:aws:iam::043490748814:role/JITPRole Demo default
 
 $ ./scripts/register-root-ca.sh $PROFILE
 ```

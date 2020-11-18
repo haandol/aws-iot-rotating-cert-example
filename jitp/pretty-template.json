@@ -10,6 +10,7 @@
       "Type": "AWS::IoT::Thing",
       "Properties": {
         "ThingName": {"Ref": "AWS::IoT::Certificate::CommonName"},
+        "ThingTypeName" : "<THING_TYPE_NAME>",
         "AttributePayload" : {
           "version": "v1",
           "serialNumber" : {"Ref": "AWS::IoT::Certificate::SerialNumber"},
