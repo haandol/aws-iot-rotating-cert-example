@@ -4,7 +4,6 @@ import * as s3 from '@aws-cdk/aws-s3';
 import * as iot from '@aws-cdk/aws-iot';
 import * as iam from '@aws-cdk/aws-iam';
 import * as lambda from '@aws-cdk/aws-lambda';
-import { ServicePrincipal } from '@aws-cdk/aws-iam';
 
 export class IotRuleStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
