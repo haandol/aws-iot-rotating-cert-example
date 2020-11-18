@@ -10,6 +10,6 @@ def handler(event, context):
         thingName=event['thingName'],
         attributePayload={
             'attributes': event['attributes'],
-            'merge': False,
+            'merge': True,
         },
     )
