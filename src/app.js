@@ -64,7 +64,7 @@ class Device {
       console.log(`[Device] message: ${topic}-${message.toString()}`);
       if (topic === `$aws/events/thing/${this.thingName}/updated`) {
         const payload = JSON.parse(message);
-        this.debug = payload.attributes.debug;
+        this.debug = payload.attributes.debug === "true";
         console.log(this.debug);
       }
     });
