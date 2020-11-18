@@ -7,8 +7,8 @@ print_usage() {
 
 if [ -n "$2" ];
 then
-    S3_BUCKET_NAME=$1
-    PROFILE=$2
+  S3_BUCKET_NAME=$1
+  PROFILE=$2
 else
   print_usage
 fi

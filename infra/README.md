@@ -19,8 +19,6 @@ This repository deploys below architecture
 
 ```bash
 $ cd infra
-$ npm i -g typescript
-$ npm i -g cdk
 $ npm i
 ```
 
