@@ -24,12 +24,8 @@ export class IotRuleStack extends cdk.Stack {
       effect: iam.Effect.ALLOW,
       resources: ['*'],
     }));
-    const debugBucket = new s3.Bucket(this, `DebugBucket`, {
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-    });
-    const prodBucket = new s3.Bucket(this, `ProdBucket`, {
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-    });
+    const debugBucket = new s3.Bucket(this, `DebugBucket`);
+    const prodBucket = new s3.Bucket(this, `ProdBucket`);
     const iotS3Role = new iam.Role(this, 'IoTS3Role', {
       assumedBy: new iam.ServicePrincipal('iot.amazonaws.com'),
     });
