@@ -9,6 +9,7 @@ export class IotRuleStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
+    // Common Resources
     const fn = new lambda.Function(this, 'UpdateThingFunction', {
       code: lambda.Code.fromAsset(path.resolve(__dirname, 'functions')),
       runtime: lambda.Runtime.PYTHON_3_7,
@@ -28,8 +29,14 @@ export class IotRuleStack extends cdk.Stack {
     const prodBucket = new s3.Bucket(this, `ProdBucket`, {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
+    const iotS3Role = new iam.Role(this, 'IoTS3Role', {
+      assumedBy: new iam.ServicePrincipal('iot.amazonaws.com'),
+    });
+    debugBucket.grantPut(iotS3Role)
+    prodBucket.grantPut(iotS3Role);
 
-    const updateThingRule = new iot.CfnTopicRule(this, 'UpdateThingRule', {
+    // Rules
+    new iot.CfnTopicRule(this, 'UpdateThingRule', {
       topicRulePayload: {
         actions: [
           {
@@ -44,12 +51,6 @@ export class IotRuleStack extends cdk.Stack {
       },
       ruleName: 'UpdateThing',
     });
-
-    const iotS3Role = new iam.Role(this, 'IoTS3Role', {
-      assumedBy: new iam.ServicePrincipal('iot.amazonaws.com'),
-    });
-    debugBucket.grantPut(iotS3Role)
-    prodBucket.grantPut(iotS3Role);
 
     new iot.CfnTopicRule(this, 'DebugLog', {
       topicRulePayload: {
@@ -86,7 +87,6 @@ export class IotRuleStack extends cdk.Stack {
       },
       ruleName: 'ProdLog',
     });
-
   }
 
 }
