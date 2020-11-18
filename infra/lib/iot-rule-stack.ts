@@ -15,6 +15,7 @@ export class IotRuleStack extends cdk.Stack {
       runtime: lambda.Runtime.PYTHON_3_7,
       handler: 'update_thing.handler',
     });
+    fn.grantInvoke(new iam.ServicePrincipal('iot.amazonaws.com'));
     fn.addToRolePolicy(new iam.PolicyStatement({
       actions: [
         'iot:*',

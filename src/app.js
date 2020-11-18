@@ -43,10 +43,10 @@ class Device {
       console.log('[Device]connect');
 
       console.log('subscribe thing update');
-      this.device.subscribe(`$aws/events/thing/${this.thingName}/updated`);
+      this.subscribe(`$aws/events/thing/${this.thingName}/updated`);
 
       console.log('publish thing update');
-      this.device.publish(`iot/update/thing/${this.thingName}`, JSON.stringify({
+      this.publish(`iot/update/thing/${this.thingName}`, JSON.stringify({
         thingName: device.thingName,
         attributes: {
           debug: 'false'
@@ -73,6 +73,11 @@ class Device {
   publish(topic, msg) {
     console.info(`[Device] publish msg to [${topic}]: ${msg}`);
     this.device.publish(topic, msg);
+  }
+
+  subscribe(topic, msg) {
+    console.info(`[Device] subscribe [${topic}]`);
+    this.device.subscribe(topic);
   }
 
   heartbeat() {
