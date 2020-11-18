@@ -2,7 +2,7 @@
 
 This repository deploys below architecture
 
-![Architecture](img/selective.png)
+![Architecture](../img/selective.png)
 
 # Prerequisites
 
