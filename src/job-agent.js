@@ -66,21 +66,26 @@ class Jobs {
         execResponse = await exec(`curl "${url}" -o "${fileName}"`);
         if (execResponse.stderr) {
           console.error(`error: ${execResponse.stderr}`);
+          job.failed({ step: 'download certs ' }, () => {
+            console.error(`error: ${execResponse.stderr}`);
+          });
           return;
         } else {
           console.log(execResponse.stdout);
-          job.succeeded({ step: 'download certs' }, () => {
+          job.inProgress({ step: 'download certs', progress: '50%' }, () => {
             console.log('download cert files successfully...');
           });
         }
 
         execResponse = await exec(`tar zxvf "${fileName}" -C src/certs`);
         if (execResponse.stderr) {
-          console.error(`error: ${execResponse.stderr}`);
+          job.failed({ step: 'rotate cert files' }, () => {
+            console.error(`error: ${execResponse.stderr}`);
+          });
           return;
         } else {
           console.log(execResponse.stdout);
-          job.succeeded({ step: 'rotate cert files' }, () => {
+          job.succeeded({ step: 'rotate cert files', progress: '100%' }, () => {
             console.log('replace cert files successfully...');
           });
         }
