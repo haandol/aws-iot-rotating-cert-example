@@ -115,10 +115,20 @@ create device certificate to be rotated with new name
 $ ./scripts/create-new-device-crt.sh new-thing01
 ```
 
-upload certificates to S3 bucket
+create bucket to upload job document and new certs
 
 ```bash
 $ export BUCKET_NAME=dongkyl-iot-test
+$ export REGION=ap-northeast-2
+$ aws s3api create-bucket --bucket $BUCKET_NAME --region $REGION --create-bucket-configuration LocationConstraint=$REGION
+{
+    "Location": "http://dongkyl-iot-test.s3.amazonaws.com/"
+}
+```
+
+upload certificates to S3 bucket
+
+```bash
 $ ./scripts/upload-new-device-crt.sh $BUCKET_NAME $PROFILE
 ```
 
